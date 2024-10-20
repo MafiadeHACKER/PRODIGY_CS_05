@@ -33,4 +33,9 @@ def process_packet(packet):
         print(f"Payload: {payload[:20]}... (truncated)")  # Truncated payload for readability
     print("-" * 50)  # Separator for readability
 
+def start_sniffing(interface="eth0"):
+    print(f"Starting packet sniffing on interface: {interface}")
+    sniff(iface=interface, prn=process_packet, store=False)
+
+
 
