@@ -37,5 +37,17 @@ def start_sniffing(interface="eth0"):
     print(f"Starting packet sniffing on interface: {interface}")
     sniff(iface=interface, prn=process_packet, store=False)
 
+# Main execution: run the sniffer on the specified interface
+def main():
+    try:
+        interface = input("Enter the network interface to sniff on (e.g., eth0, wlan0): ")
+        start_sniffing(interface)
+    except KeyboardInterrupt:
+        print("\nSniffing stopped by user.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
 
 
